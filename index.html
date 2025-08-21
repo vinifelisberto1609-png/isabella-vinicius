@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Confirmação de Presença – Nosso Casamento</title>
+  <script>
+    async function enviarFormulario(event) {
+      event.preventDefault();
+
+      const botao = document.getElementById("btn-enviar");
+      const mensagemFinal = document.getElementById("mensagem-final");
+      botao.disabled = true;
+      botao.innerText = "Enviando...";
+
+      const url = "https://script.google.com/macros/s/AKfycbzZmuDRdzJvmYzUZhm4-4BxCkAPuL-rmCESLM3YMXlEBlKJY_3eTfhmc4YteXdsDzrh4A/exec";
+      const data = {
+        nome: document.getElementById("nome").value,
+        mensagem: document.getElementById("mensagem").value
+      };
+
+      try {
+        await fetch(url, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data),
+        });
+
+        document.getElementById("form-rsvp").style.display = "none";
+        mensagemFinal.style.display = "block";
+      } catch (error) {
+        console.error("Erro ao enviar:", error);
+        alert("Ops... algo deu errado. Tente novamente.");
+        botao.disabled = false;
+        botao.innerText = "Confirmar presença";
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: Calibri, system-ui, sans-serif;
+      background: linear-gradient(135deg, #f0f7ff, #e6f0fa);
+      text-align: center;
+      padding: 20px;
+      color: #234064;
+    }
+    h1 {
+      font-family: Calibri, system-ui, sans-serif;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #2b5ea8;
+      margin-bottom: 10px;
+    }
+    p.subtitle {
+      font-size: 1.1em;
+      color: #3e5679;
+      margin-bottom: 20px;
+    }
+    form {
+      background: #fff;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .campo {
+      width: 100%;
+      margin: 12px 0;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 14px;
+      border: 1px solid #c2d6ec;
+      border-radius: 10px;
+      font-size: 1.1em;
+      background: #f8fbff;
+      font-family: Calibri, system-ui, sans-serif;
+      color: #234064;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #2b5ea8;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1em;
+      font-family: Calibri, system-ui, sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    button:hover:enabled {
+      background-color: #244d88;
+      transform: scale(1.02);
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    #mensagem-final {
+      display: none;
+      font-size: 1.2em;
+      background: #fff;
+      padding: 25px;
+      border-radius: 20px;
+      max-width: 500px;
+      margin: 20px auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      color: #234064;
+      font-family: Calibri, system-ui, sans-serif;
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Nosso Casamento 💍</h1>
+  <p class="subtitle">Confirme sua presença e celebre este dia especial conosco!</p>
+
+  <form id="form-rsvp" onsubmit="enviarFormulario(event)">
+    <div class="campo">
+      <input type="text" id="nome" placeholder="Seu nome completo" required>
+    </div>
+    <div class="campo">
+      <textarea id="mensagem" placeholder="Deixe uma mensagem de carinho (opcional)"></textarea>
+    </div>
+    <button id="btn-enviar" type="submit">Confirmar presença</button>
+  </form>
+
+  <div id="mensagem-final">
+    🎉 Obrigado por confirmar sua presença! <br>
+    Estamos muito felizes em compartilhar este momento com você. 💖
+  </div>
+</body>
+</html>
