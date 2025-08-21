@@ -1,163 +1,117 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Casamento Isabella & Vinicius – 27/10/2029</title>
-  <meta name="description" content="Site oficial do nosso casamento em 27/10/2029: data, local, lista de presentes e confirmação de presença." />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="Casamento Isabella & Vinicius 💍" />
-  <meta property="og:description" content="Nosso casamento será em 27/10/2029! Veja local, detalhes e confirme sua presença." />
-  <meta property="og:type" content="website" />
-  <!-- Substitua pelo link de uma imagem (foto de capa) -->
-  <meta property="og:image" content="link-da-sua-foto.jpg" />
-  <meta property="og:url" content="https://vinifelisberto1609-png.github.io/isabella-vinicius/" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- CSS externo (pode salvar como style.css) -->
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confirme sua Presença</title>
+  <style>
+    body {
+      font-family: Calibri, sans-serif;
+      background: linear-gradient(135deg, #d4e9f7, #a0cfee);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 420px;
+      width: 100%;
+      padding: 24px;
+    }
+    h2 {
+      color: #234064;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .field {
+      margin-bottom: 14px;
+    }
+    input, textarea, select, button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+    button {
+      background-color: #234064;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #34608d;
+    }
+    #mensagemFinal {
+      display: none;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #234064;
+      margin-top: 16px;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-wrap">
-      <div class="brand">Isabella & Vinicius</div>
-      <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-links" onclick="toggleMenu()">☰ <span class="sr-only">Menu</span></button>
-      <div id="menu-links" class="links" role="navigation">
-        <a href="#home">Início</a>
-        <a href="#historia">Nossa História</a>
-        <a href="#evento">Detalhes</a>
-        <a href="#presentes">Presentes</a>
-        <a href="#rsvp">Confirmar Presença</a>
+  <div class="container">
+    <h2>Confirme sua Presença</h2>
+    <form id="form-rsvp">
+      <div class="field">
+        <input type="text" id="nome" placeholder="Seu nome" required>
       </div>
-    </div>
-  </nav>
-
-  <!-- HERO / COUNTDOWN -->
-  <header id="home" class="hero">
-    <div class="container">
-      <h1>Isabella & Vinicius 💍</h1>
-      <p>Contagem regressiva para o grande dia!</p>
-      <div class="countdown" id="countdown">
-        <div class="cd-box"><span class="num" id="dd">--</span><span class="lbl">dias</span></div>
-        <div class="cd-box"><span class="num" id="hh">--</span><span class="lbl">horas</span></div>
-        <div class="cd-box"><span class="num" id="mm">--</span><span class="lbl">min</span></div>
-        <div class="cd-box"><span class="num" id="ss">--</span><span class="lbl">seg</span></div>
+      <div class="field">
+        <select id="presenca" required>
+          <option value="">Você irá?</option>
+          <option value="Sim">Sim, estarei presente 🎉</option>
+          <option value="Não">Não poderei ir 😢</option>
+        </select>
       </div>
-    </div>
-  </header>
-
-  <!-- HISTÓRIA -->
-  <section id="historia">
-    <div class="container grid-2">
-      <div class="card">
-        <h2>Nossa História</h2>
-        <p>
-          Tudo começou com um sorriso… e desde então colecionamos momentos, viagens e risadas.
-          Agora, queremos celebrar esse amor com quem fez parte da nossa jornada. 💙
-        </p>
+      <div class="field">
+        <textarea id="mensagem" rows="3" placeholder="Deixe uma mensagem (opcional)"></textarea>
       </div>
-      <div class="card">
-        <h2>O Grande Dia</h2>
-        <p>
-          Cerimônia e recepção no mesmo local. Sinta-se à vontade para vir de coração leve e
-          pronto para dançar!
-        </p>
-      </div>
-    </div>
-  </section>
+      <button type="submit">Enviar Confirmação</button>
+    </form>
+    <div id="mensagemFinal">🎉 Obrigado por confirmar sua presença!</div>
+  </div>
 
-  <!-- GALERIA DE FOTOS -->
-  <section id="galeria">
-    <div class="container">
-      <h2 style="text-align:center; margin-bottom:24px;">Nossa Galeria 📸</h2>
-      <div class="grid-galeria">
-        <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (1).jpeg" alt="Isabella e Vinicius - Foto 1"></div>
-        <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (2).jpeg" alt="Isabella e Vinicius - Foto 2"></div>
-        <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (3).jpeg" alt="Isabella e Vinicius - Foto 3"></div>
-        <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12.jpeg" alt="Isabella e Vinicius - Foto 4"></div>
-        <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.13 (1).jpeg" alt="Isabella e Vinicius - Foto 5"></div>
-        <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.13.jpeg" alt="Isabella e Vinicius - Foto 6"></div>
-      </div>
-    </div>
-  </section>
+  <script>
+    document.getElementById("form-rsvp").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-  <!-- DETALHES DO EVENTO + MAPA -->
-  <section id="evento">
-    <div class="container grid-2">
-      <div class="card">
-        <h2>Detalhes do Evento</h2>
-        <p><strong>Data:</strong> <span id="data-evento">27/10/2029</span></p>
-        <p><strong>Horário:</strong> 12:00</p>
-        <p><strong>Local:</strong> Associação dos Servidores Públicos Municipais de Santo André</p>
-        <p><strong>Endereço:</strong> R. Igarapava, 269 - Vila Valparaíso, Santo André - SP, 09060-170</p>
-      </div>
-      <div class="card" aria-label="Mapa do local">
-        <iframe
-          title="Mapa do Local"
-          width="100%" height="260" style="border:0; border-radius:14px"
-          loading="lazy" allowfullscreen
-          src="https://www.google.com/maps?q=Associa%C3%A7%C3%A3o%20dos%20Servidores%20P%C3%BAblicos%20Municipais%20de%20Santo%20Andr%C3%A9%20R.%20Igarapava%20269&output=embed">
-        </iframe>
-        <p style="margin-top:8px; color:var(--muted); font-size:.95rem">
-          Dica: toque para abrir o mapa no aplicativo e traçar a rota.
-        </p>
-      </div>
-    </div>
-  </section>
+      let nome = document.getElementById("nome").value;
+      let presenca = document.getElementById("presenca").value;
+      let mensagem = document.getElementById("mensagem").value;
 
-  <!-- LISTA DE PRESENTES -->
-  <section id="presentes">
-    <div class="container">
-      <div class="card" style="text-align:center;">
-        <h2>Lista de Presentes 🎁</h2>
-        <p>O melhor presente é a sua presença!  
-           Mas, se quiser nos presentear, você pode enviar via Pix:</p>
+      if (!nome || !presenca) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return;
+      }
 
-        <p style="font-size:18px; font-weight:bold; color:#234064; margin:16px 0;">
-          Chave Pix: <br>
-          <span id="chavepix">chavepix@email.com</span>
-        </p>
+      // URL do Google Apps Script
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxlZ3tXULjF9L6HvuFi3a1Vqf5zLMfS2xAItQpQmAcQ4hYtYaX2RRT6cU0BxT0X7U0O/exec";
 
-        <button class="btn" onclick="copiarChave()">Copiar Chave Pix</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- RSVP -->
-  <section id="rsvp">
-    <div class="container">
-      <div class="card" style="max-width:560px; margin:auto">
-        <h2>Confirme sua Presença</h2>
-        <form id="form-rsvp">
-          <div class="field">
-            <label for="nome" style="display:block; margin-bottom:6px; color:var(--muted)">Seu nome</label>
-            <input id="nome" type="text" placeholder="Nome completo" required />
-          </div>
-          <div class="field">
-            <label for="mensagem" style="display:block; margin-bottom:6px; color:var(--muted)">Mensagem (opcional)</label>
-            <textarea id="mensagem" placeholder="Deixe um recadinho carinhoso"></textarea>
-          </div>
-          <button id="btn-enviar" class="btn" type="submit">Confirmar presença</button>
-        </form>
-        <div id="mensagem-final" style="display:none; text-align:center">
-          <p style="font-size:1.1rem">🎉 Obrigado por confirmar! Estamos muito felizes em celebrar com você. 💖</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    Feito com carinho por Isabella & Vinicius • © <span id="year"></span>
-  </footer>
-
-  <button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
-
-  <!-- JS externo (pode salvar como script.js) -->
-  <script src="script.js" defer></script>
-
+      fetch(scriptURL, {
+        method: "POST",
+        body: new URLSearchParams({
+          "nome": nome,
+          "presenca": presenca,
+          "mensagem": mensagem
+        }),
+        mode: "no-cors"
+      })
+      .then(() => {
+        document.getElementById("form-rsvp").style.display = "none";
+        document.getElementById("mensagemFinal").style.display = "block";
+      })
+      .catch((error) => {
+        alert("Ocorreu um erro ao enviar sua confirmação. Tente novamente.");
+        console.error("Erro:", error);
+      });
+    });
+  </script>
 </body>
 </html>
