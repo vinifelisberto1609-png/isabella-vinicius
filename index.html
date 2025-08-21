@@ -3,94 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nosso Casamento - Isabella & Vinicius</title>
-  <meta name="description" content="Site oficial do nosso casamento: data, local, lista de presentes e confirmação de presença." />
-  <style>
-    :root{
-      --bg: #f0f7ff;
-      --bg2:#e6f0fa;
-      --text:#234064;
-      --muted:#3e5679;
-      --primary:#2b5ea8;
-      --primary-dark:#244d88;
-      --card:#ffffff;
-      --border:#c2d6ec;
-    }
-    html{scroll-behavior:smooth;}
-    body{
-      margin:0; font-family: Calibri, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      color:var(--text); background: linear-gradient(135deg,var(--bg),var(--bg2));
-    }
-    /* Navbar */
-    .nav{
-      position:sticky; top:0; z-index:50; background:rgba(255,255,255,.85);
-      backdrop-filter: blur(6px); border-bottom:1px solid #e9eef7;
-    }
-    .nav-wrap{
-      max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between;
-      padding:12px 16px;
-    }
-    .brand{font-weight:700; color:var(--primary); letter-spacing:.3px}
-    .links a{margin:0 10px; text-decoration:none; color:var(--muted)}
-    .links a:hover{color:var(--primary)}
-    .burger{display:none; background:none; border:0; font-size:26px; color:var(--primary)}
-    @media (max-width:720px){
-      .links{display:none; flex-direction:column; padding:8px 16px}
-      .links.show{display:flex; background:#fff}
-      .burger{display:block}
-    }
 
-    /* Hero */
-    .hero{
-      display:grid; place-items:center; text-align:center; padding:64px 16px 48px;
-      background: radial-gradient(1200px 480px at 50% -120px, #ffffffaa, transparent);
-    }
-    .hero h1{font-size:40px; margin:0 0 8px; color:var(--primary)}
-    .hero p{margin:0; color:var(--muted); font-size:18px}
-    .countdown{
-      display:flex; gap:12px; justify-content:center; margin:24px 0 0; flex-wrap:wrap;
-    }
-    .cd-box{
-      background:var(--card); border:1px solid var(--border); border-radius:14px; padding:12px 16px; min-width:86px;
-      box-shadow:0 6px 18px rgba(0,0,0,.06);
-    }
-    .cd-box .num{display:block; font-size:28px; font-weight:700; color:var(--primary)}
-    .cd-box .lbl{font-size:12px; color:var(--muted)}
+  <title>Casamento Isabella & Vinicius – 27/10/2029</title>
+  <meta name="description" content="Site oficial do nosso casamento em 27/10/2029: data, local, lista de presentes e confirmação de presença." />
 
-    /* Sections */
-    section{padding:48px 16px}
-    .container{max-width:1000px; margin:auto}
-    .card{
-      background:var(--card); border:1px solid var(--border); border-radius:20px; padding:24px;
-      box-shadow:0 8px 20px rgba(0,0,0,.08);
-    }
-    h2{color:var(--primary); margin:0 0 16px; font-size:28px}
-    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
-    @media (max-width:900px){ .grid-2{grid-template-columns:1fr} }
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Casamento Isabella & Vinicius 💍" />
+  <meta property="og:description" content="Nosso casamento será em 27/10/2029! Veja local, detalhes e confirme sua presença." />
+  <meta property="og:type" content="website" />
+  <!-- Substitua pelo link de uma imagem (foto de capa) -->
+  <meta property="og:image" content="link-da-sua-foto.jpg" />
+  <meta property="og:url" content="https://vinifelisberto1609-png.github.io/isabella-vinicius/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    /* Inputs & buttons */
-    .field{margin:12px 0}
-    input[type="text"], textarea{
-      width:100%; box-sizing:border-box; padding:14px; border:1px solid var(--border);
-      border-radius:10px; background:#f8fbff; color:var(--text); font-size:1rem;
-    }
-    textarea{min-height:110px; resize:vertical}
-    .btn{
-      display:inline-block; width:100%; padding:14px; background:var(--primary); color:#fff; text-align:center;
-      border:0; border-radius:10px; font-weight:600; cursor:pointer; transition:.2s transform, .2s background;
-    }
-    .btn:hover{background:var(--primary-dark); transform:translateY(-1px)}
-    .btn:disabled{background:#c8d7ee; cursor:not-allowed}
-
-    /* Gifts */
-    .gifts li{margin:10px 0}
-    .gifts a{color:var(--primary); text-decoration:none}
-    .gifts a:hover{text-decoration:underline}
-
-    /* Footer */
-    footer{padding:32px 16px; text-align:center; color:#5b6f90}
-    .top{position:fixed; right:16px; bottom:16px; background:var(--primary); color:#fff; border:0; border-radius:999px; padding:10px 14px; box-shadow:0 8px 18px rgba(0,0,0,.18); cursor:pointer}
-  </style>
+  <!-- CSS externo (pode salvar como style.css) -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -98,8 +25,8 @@
   <nav class="nav">
     <div class="nav-wrap">
       <div class="brand">Isabella & Vinicius</div>
-      <button class="burger" aria-label="Abrir menu" onclick="document.querySelector('.links').classList.toggle('show')">☰</button>
-      <div class="links" role="navigation">
+      <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-links" onclick="toggleMenu()">☰ <span class="sr-only">Menu</span></button>
+      <div id="menu-links" class="links" role="navigation">
         <a href="#home">Início</a>
         <a href="#historia">Nossa História</a>
         <a href="#evento">Detalhes</a>
@@ -143,46 +70,20 @@
     </div>
   </section>
 
-<!-- GALERIA DE FOTOS -->
-<section id="galeria">
-  <div class="container">
-    <h2 style="text-align:center; margin-bottom:24px;">Nossa Galeria 📸</h2>
-    <div class="grid-galeria">
-      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (1).jpeg" alt="Foto 1"></div>
-      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (2).jpeg" alt="Foto 2"></div>
-      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (3).jpeg" alt="Foto 3"></div>
-      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12.jpeg" alt="Foto 4"></div>
-      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.13 (1).jpeg" alt="Foto 5"></div>
-      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.13.jpeg" alt="Foto 6"></div>
+  <!-- GALERIA DE FOTOS -->
+  <section id="galeria">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom:24px;">Nossa Galeria 📸</h2>
+      <div class="grid-galeria">
+        <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (1).jpeg" alt="Isabella e Vinicius - Foto 1"></div>
+        <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (2).jpeg" alt="Isabella e Vinicius - Foto 2"></div>
+        <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (3).jpeg" alt="Isabella e Vinicius - Foto 3"></div>
+        <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12.jpeg" alt="Isabella e Vinicius - Foto 4"></div>
+        <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.13 (1).jpeg" alt="Isabella e Vinicius - Foto 5"></div>
+        <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.13.jpeg" alt="Isabella e Vinicius - Foto 6"></div>
+      </div>
     </div>
-  </div>
-</section>
-
-<style>
-  .grid-galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-  }
-  .grid-galeria .foto {
-    overflow: hidden;
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    box-shadow: 0 6px 18px rgba(0,0,0,.06);
-    cursor: pointer;
-    transition: transform .3s, box-shadow .3s;
-  }
-  .grid-galeria .foto img {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    aspect-ratio: 4/3;
-  }
-  .grid-galeria .foto:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 24px rgba(0,0,0,.12);
-  }
-</style>
+  </section>
 
   <!-- DETALHES DO EVENTO + MAPA -->
   <section id="evento">
@@ -208,34 +109,24 @@
     </div>
   </section>
 
-<!-- LISTA DE PRESENTES -->
-<section id="presentes">
-  <div class="container">
-    <div class="card" style="text-align:center;">
-      <h2>Lista de Presentes 🎁</h2>
-      <p>O melhor presente é a sua presença!  
-         Mas, se quiser nos presentear, você pode enviar via Pix:</p>
+  <!-- LISTA DE PRESENTES -->
+  <section id="presentes">
+    <div class="container">
+      <div class="card" style="text-align:center;">
+        <h2>Lista de Presentes 🎁</h2>
+        <p>O melhor presente é a sua presença!  
+           Mas, se quiser nos presentear, você pode enviar via Pix:</p>
 
-      <p style="font-size:18px; font-weight:bold; color:#234064; margin:16px 0;">
-        Chave Pix: <br>
-        <span id="chavepix">chavepix@email.com</span>
-      </p>
+        <p style="font-size:18px; font-weight:bold; color:#234064; margin:16px 0;">
+          Chave Pix: <br>
+          <span id="chavepix">chavepix@email.com</span>
+        </p>
 
-      <button class="btn" onclick="copiarChave()">Copiar Chave Pix</button>
-
+        <button class="btn" onclick="copiarChave()">Copiar Chave Pix</button>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<script>
-  function copiarChave(){
-    const chave = document.getElementById("chavepix").innerText;
-    navigator.clipboard.writeText(chave).then(() => {
-      alert("Chave Pix copiada!");
-    });
-  }
-</script>
   <!-- RSVP -->
   <section id="rsvp">
     <div class="container">
@@ -265,71 +156,8 @@
 
   <button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
 
-  <script>
-    // ====== CONFIGURAÇÕES ======
-    const TARGET_DATE = new Date("2029-10-27T12:00:00-03:00"); 
-    document.getElementById('data-evento').textContent = "27/10/2029";
+  <!-- JS externo (pode salvar como script.js) -->
+  <script src="script.js" defer></script>
 
-    // ====== COUNTDOWN ======
-    const dd = document.getElementById('dd');
-    const hh = document.getElementById('hh');
-    const mm = document.getElementById('mm');
-    const ss = document.getElementById('ss');
-
-    function updateCountdown(){
-      const now = new Date();
-      const diff = TARGET_DATE - now;
-      if(diff <= 0){
-        dd.textContent = "0"; hh.textContent = "0"; mm.textContent = "0"; ss.textContent = "0";
-        return;
-      }
-      const sec = Math.floor(diff/1000);
-      const days = Math.floor(sec/86400);
-      const hours = Math.floor((sec%86400)/3600);
-      const mins = Math.floor((sec%3600)/60);
-      const secs = sec%60;
-      dd.textContent = days;
-      hh.textContent = String(hours).padStart(2,'0');
-      mm.textContent = String(mins).padStart(2,'0');
-      ss.textContent = String(secs).padStart(2,'0');
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // ====== RSVP (Apps Script) ======
-    const form = document.getElementById('form-rsvp');
-    const btn = document.getElementById('btn-enviar');
-    const msgFinal = document.getElementById('mensagem-final');
-
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZmuDRdzJvmYzUZhm4-4BxCkAPuL-rmCESLM3YMXlEBlKJY_3eTfhmc4YteXdsDzrh4A/exec";
-
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      btn.disabled = true; btn.textContent = "Enviando...";
-
-      const payload = {
-        nome: document.getElementById('nome').value.trim(),
-        mensagem: document.getElementById('mensagem').value.trim()
-      };
-      try{
-        await fetch(APPS_SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: {"Content-Type":"application/json"},
-          body: JSON.stringify(payload)
-        });
-        form.style.display = "none";
-        msgFinal.style.display = "block";
-      }catch(err){
-        alert("Não foi possível enviar agora. Tente novamente.");
-        btn.disabled = false; btn.textContent = "Confirmar presença";
-      }
-    });
-
-    // ====== FOOTER YEAR ======
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
-
-
