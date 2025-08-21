@@ -1,117 +1,333 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Confirme sua Presença</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nosso Casamento - Isabella & Vinicius</title>
+  <meta name="description" content="Site oficial do nosso casamento: data, local, lista de presentes e confirmação de presença." />
   <style>
-    body {
-      font-family: Calibri, sans-serif;
-      background: linear-gradient(135deg, #d4e9f7, #a0cfee);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 20px;
+    :root{
+      --bg: #f0f7ff;
+      --bg2:#e6f0fa;
+      --text:#234064;
+      --muted:#3e5679;
+      --primary:#2b5ea8;
+      --primary-dark:#244d88;
+      --card:#ffffff;
+      --border:#c2d6ec;
     }
-    .container {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 420px;
-      width: 100%;
-      padding: 24px;
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0; font-family: Calibri, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color:var(--text); background: linear-gradient(135deg,var(--bg),var(--bg2));
     }
-    h2 {
-      color: #234064;
-      text-align: center;
-      margin-bottom: 16px;
+    /* Navbar */
+    .nav{
+      position:sticky; top:0; z-index:50; background:rgba(255,255,255,.85);
+      backdrop-filter: blur(6px); border-bottom:1px solid #e9eef7;
     }
-    .field {
-      margin-bottom: 14px;
+    .nav-wrap{
+      max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between;
+      padding:12px 16px;
     }
-    input, textarea, select, button {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 15px;
+    .brand{font-weight:700; color:var(--primary); letter-spacing:.3px}
+    .links a{margin:0 10px; text-decoration:none; color:var(--muted)}
+    .links a:hover{color:var(--primary)}
+    .burger{display:none; background:none; border:0; font-size:26px; color:var(--primary)}
+    @media (max-width:720px){
+      .links{display:none; flex-direction:column; padding:8px 16px}
+      .links.show{display:flex; background:#fff}
+      .burger{display:block}
     }
-    button {
-      background-color: #234064;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s;
+
+    /* Hero */
+    .hero{
+      display:grid; place-items:center; text-align:center; padding:64px 16px 48px;
+      background: radial-gradient(1200px 480px at 50% -120px, #ffffffaa, transparent);
     }
-    button:hover {
-      background-color: #34608d;
+    .hero h1{font-size:40px; margin:0 0 8px; color:var(--primary)}
+    .hero p{margin:0; color:var(--muted); font-size:18px}
+    .countdown{
+      display:flex; gap:12px; justify-content:center; margin:24px 0 0; flex-wrap:wrap;
     }
-    #mensagemFinal {
-      display: none;
-      text-align: center;
-      font-size: 1.1rem;
-      color: #234064;
-      margin-top: 16px;
+    .cd-box{
+      background:var(--card); border:1px solid var(--border); border-radius:14px; padding:12px 16px; min-width:86px;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
     }
+    .cd-box .num{display:block; font-size:28px; font-weight:700; color:var(--primary)}
+    .cd-box .lbl{font-size:12px; color:var(--muted)}
+
+    /* Sections */
+    section{padding:48px 16px}
+    .container{max-width:1000px; margin:auto}
+    .card{
+      background:var(--card); border:1px solid var(--border); border-radius:20px; padding:24px;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
+    }
+    h2{color:var(--primary); margin:0 0 16px; font-size:28px}
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+    @media (max-width:900px){ .grid-2{grid-template-columns:1fr} }
+
+    /* Inputs & buttons */
+    .field{margin:12px 0}
+    input[type="text"], textarea{
+      width:100%; box-sizing:border-box; padding:14px; border:1px solid var(--border);
+      border-radius:10px; background:#f8fbff; color:var(--text); font-size:1rem;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .btn{
+      display:inline-block; width:100%; padding:14px; background:var(--primary); color:#fff; text-align:center;
+      border:0; border-radius:10px; font-weight:600; cursor:pointer; transition:.2s transform, .2s background;
+    }
+    .btn:hover{background:var(--primary-dark); transform:translateY(-1px)}
+    .btn:disabled{background:#c8d7ee; cursor:not-allowed}
+
+    /* Gifts */
+    .gifts li{margin:10px 0}
+    .gifts a{color:var(--primary); text-decoration:none}
+    .gifts a:hover{text-decoration:underline}
+
+    /* Footer */
+    footer{padding:32px 16px; text-align:center; color:#5b6f90}
+    .top{position:fixed; right:16px; bottom:16px; background:var(--primary); color:#fff; border:0; border-radius:999px; padding:10px 14px; box-shadow:0 8px 18px rgba(0,0,0,.18); cursor:pointer}
   </style>
 </head>
 <body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-wrap">
+      <div class="brand">Isabella & Vinicius</div>
+      <button class="burger" aria-label="Abrir menu" onclick="document.querySelector('.links').classList.toggle('show')">☰</button>
+      <div class="links" role="navigation">
+        <a href="#home">Início</a>
+        <a href="#historia">Nossa História</a>
+        <a href="#evento">Detalhes</a>
+        <a href="#presentes">Presentes</a>
+        <a href="#rsvp">Confirmar Presença</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / COUNTDOWN -->
+  <header id="home" class="hero">
+    <div class="container">
+      <h1>Isabella & Vinicius 💍</h1>
+      <p>Contagem regressiva para o grande dia!</p>
+      <div class="countdown" id="countdown">
+        <div class="cd-box"><span class="num" id="dd">--</span><span class="lbl">dias</span></div>
+        <div class="cd-box"><span class="num" id="hh">--</span><span class="lbl">horas</span></div>
+        <div class="cd-box"><span class="num" id="mm">--</span><span class="lbl">min</span></div>
+        <div class="cd-box"><span class="num" id="ss">--</span><span class="lbl">seg</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HISTÓRIA -->
+  <section id="historia">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Nossa História</h2>
+        <p>
+          Tudo começou com um sorriso… e desde então colecionamos momentos, viagens e risadas.
+          Agora, queremos celebrar esse amor com quem fez parte da nossa jornada. 💙
+        </p>
+      </div>
+      <div class="card">
+        <h2>O Grande Dia</h2>
+        <p>
+          Cerimônia e recepção no mesmo local. Sinta-se à vontade para vir de coração leve e
+          pronto para dançar!
+        </p>
+      </div>
+    </div>
+  </section>
+
+<!-- GALERIA DE FOTOS -->
+<section id="galeria">
   <div class="container">
-    <h2>Confirme sua Presença</h2>
-    <form id="form-rsvp">
-      <div class="field">
-        <input type="text" id="nome" placeholder="Seu nome" required>
-      </div>
-      <div class="field">
-        <select id="presenca" required>
-          <option value="">Você irá?</option>
-          <option value="Sim">Sim, estarei presente 🎉</option>
-          <option value="Não">Não poderei ir 😢</option>
-        </select>
-      </div>
-      <div class="field">
-        <textarea id="mensagem" rows="3" placeholder="Deixe uma mensagem (opcional)"></textarea>
-      </div>
-      <button type="submit">Enviar Confirmação</button>
-    </form>
-    <div id="mensagemFinal">🎉 Obrigado por confirmar sua presença!</div>
+    <h2 style="text-align:center; margin-bottom:24px;">Nossa Galeria 📸</h2>
+    <div class="grid-galeria">
+      <div class="foto"><img src="iWhatsApp Image 2025-08-20 at 22.46.13.jpeg" alt="Foto 1"></div>
+      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.13 (1).jpeg" alt="Foto 2"></div>
+      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12.jpeg" alt="Foto 3"></div>
+      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (3).jpeg" alt="Foto 4"></div>
+      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (2).jpeg" alt="Foto 5"></div>
+      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (1).jpeg" alt="Foto 6"></div>
+    </div>
   </div>
+</section>
+
+<style>
+  .grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  .grid-galeria .foto {
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    cursor: pointer;
+    transition: transform .3s, box-shadow .3s;
+  }
+  .grid-galeria .foto img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+  }
+  .grid-galeria .foto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0,0,0,.12);
+  }
+</style>
+
+  <!-- DETALHES DO EVENTO + MAPA -->
+  <section id="evento">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Detalhes do Evento</h2>
+        <p><strong>Data:</strong> <span id="data-evento">27/10/2029</span></p>
+        <p><strong>Horário:</strong> 12:00</p>
+        <p><strong>Local:</strong> Associação dos Servidores Públicos Municipais de Santo André</p>
+        <p><strong>Endereço:</strong> R. Igarapava, 269 - Vila Valparaíso, Santo André - SP, 09060-170</p>
+      </div>
+      <div class="card" aria-label="Mapa do local">
+        <iframe
+          title="Mapa do Local"
+          width="100%" height="260" style="border:0; border-radius:14px"
+          loading="lazy" allowfullscreen
+          src="https://www.google.com/maps?q=Associa%C3%A7%C3%A3o%20dos%20Servidores%20P%C3%BAblicos%20Municipais%20de%20Santo%20Andr%C3%A9%20R.%20Igarapava%20269&output=embed">
+        </iframe>
+        <p style="margin-top:8px; color:var(--muted); font-size:.95rem">
+          Dica: toque para abrir o mapa no aplicativo e traçar a rota.
+        </p>
+      </div>
+    </div>
+  </section>
+
+<!-- LISTA DE PRESENTES -->
+<section id="presentes">
+  <div class="container">
+    <div class="card" style="text-align:center;">
+      <h2>Lista de Presentes 🎁</h2>
+      <p>O melhor presente é a sua presença!  
+         Mas, se quiser nos presentear, você pode enviar via Pix:</p>
+
+      <p style="font-size:18px; font-weight:bold; color:#234064; margin:16px 0;">
+        Chave Pix: <br>
+        <span id="chavepix">chavepix@email.com</span>
+      </p>
+
+      <button class="btn" onclick="copiarChave()">Copiar Chave Pix</button>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function copiarChave(){
+    const chave = document.getElementById("chavepix").innerText;
+    navigator.clipboard.writeText(chave).then(() => {
+      alert("Chave Pix copiada!");
+    });
+  }
+</script>
+  <!-- RSVP -->
+  <section id="rsvp">
+    <div class="container">
+      <div class="card" style="max-width:560px; margin:auto">
+        <h2>Confirme sua Presença</h2>
+        <form id="form-rsvp">
+          <div class="field">
+            <label for="nome" style="display:block; margin-bottom:6px; color:var(--muted)">Seu nome</label>
+            <input id="nome" type="text" placeholder="Nome completo" required />
+          </div>
+          <div class="field">
+            <label for="mensagem" style="display:block; margin-bottom:6px; color:var(--muted)">Mensagem (opcional)</label>
+            <textarea id="mensagem" placeholder="Deixe um recadinho carinhoso"></textarea>
+          </div>
+          <button id="btn-enviar" class="btn" type="submit">Confirmar presença</button>
+        </form>
+        <div id="mensagem-final" style="display:none; text-align:center">
+          <p style="font-size:1.1rem">🎉 Obrigado por confirmar! Estamos muito felizes em celebrar com você. 💖</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Feito com carinho por Isabella & Vinicius • © <span id="year"></span>
+  </footer>
+
+  <button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
 
   <script>
-    document.getElementById("form-rsvp").addEventListener("submit", function(e) {
-      e.preventDefault();
+    // ====== CONFIGURAÇÕES ======
+    const TARGET_DATE = new Date("2029-10-27T12:00:00-03:00"); 
+    document.getElementById('data-evento').textContent = "27/10/2029";
 
-      let nome = document.getElementById("nome").value;
-      let presenca = document.getElementById("presenca").value;
-      let mensagem = document.getElementById("mensagem").value;
+    // ====== COUNTDOWN ======
+    const dd = document.getElementById('dd');
+    const hh = document.getElementById('hh');
+    const mm = document.getElementById('mm');
+    const ss = document.getElementById('ss');
 
-      if (!nome || !presenca) {
-        alert("Por favor, preencha todos os campos obrigatórios.");
+    function updateCountdown(){
+      const now = new Date();
+      const diff = TARGET_DATE - now;
+      if(diff <= 0){
+        dd.textContent = "0"; hh.textContent = "0"; mm.textContent = "0"; ss.textContent = "0";
         return;
       }
+      const sec = Math.floor(diff/1000);
+      const days = Math.floor(sec/86400);
+      const hours = Math.floor((sec%86400)/3600);
+      const mins = Math.floor((sec%3600)/60);
+      const secs = sec%60;
+      dd.textContent = days;
+      hh.textContent = String(hours).padStart(2,'0');
+      mm.textContent = String(mins).padStart(2,'0');
+      ss.textContent = String(secs).padStart(2,'0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-      // URL do Google Apps Script
-      const scriptURL = "https://script.google.com/macros/s/AKfycbxlZ3tXULjF9L6HvuFi3a1Vqf5zLMfS2xAItQpQmAcQ4hYtYaX2RRT6cU0BxT0X7U0O/exec";
+    // ====== RSVP (Apps Script) ======
+    const form = document.getElementById('form-rsvp');
+    const btn = document.getElementById('btn-enviar');
+    const msgFinal = document.getElementById('mensagem-final');
 
-      fetch(scriptURL, {
-        method: "POST",
-        body: new URLSearchParams({
-          "nome": nome,
-          "presenca": presenca,
-          "mensagem": mensagem
-        }),
-        mode: "no-cors"
-      })
-      .then(() => {
-        document.getElementById("form-rsvp").style.display = "none";
-        document.getElementById("mensagemFinal").style.display = "block";
-      })
-      .catch((error) => {
-        alert("Ocorreu um erro ao enviar sua confirmação. Tente novamente.");
-        console.error("Erro:", error);
-      });
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZmuDRdzJvmYzUZhm4-4BxCkAPuL-rmCESLM3YMXlEBlKJY_3eTfhmc4YteXdsDzrh4A/exec";
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      btn.disabled = true; btn.textContent = "Enviando...";
+
+      const payload = {
+        nome: document.getElementById('nome').value.trim(),
+        mensagem: document.getElementById('mensagem').value.trim()
+      };
+      try{
+        await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {"Content-Type":"application/json"},
+          body: JSON.stringify(payload)
+        });
+        form.style.display = "none";
+        msgFinal.style.display = "block";
+      }catch(err){
+        alert("Não foi possível enviar agora. Tente novamente.");
+        btn.disabled = false; btn.textContent = "Confirmar presença";
+      }
     });
+
+    // ====== FOOTER YEAR ======
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
