@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,15 +22,10 @@
       margin:0; font-family: Calibri, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       color:var(--text); background: linear-gradient(135deg,var(--bg),var(--bg2));
     }
+
     /* Navbar */
-    .nav{
-      position:sticky; top:0; z-index:50; background:rgba(255,255,255,.85);
-      backdrop-filter: blur(6px); border-bottom:1px solid #e9eef7;
-    }
-    .nav-wrap{
-      max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between;
-      padding:12px 16px;
-    }
+    .nav{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,.85); backdrop-filter: blur(6px); border-bottom:1px solid #e9eef7; }
+    .nav-wrap{ max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:12px 16px; }
     .brand{font-weight:700; color:var(--primary); letter-spacing:.3px}
     .links a{margin:0 10px; text-decoration:none; color:var(--muted)}
     .links a:hover{color:var(--primary)}
@@ -41,29 +37,18 @@
     }
 
     /* Hero */
-    .hero{
-      display:grid; place-items:center; text-align:center; padding:64px 16px 48px;
-      background: radial-gradient(1200px 480px at 50% -120px, #ffffffaa, transparent);
-    }
+    .hero{ display:grid; place-items:center; text-align:center; padding:64px 16px 48px; background: radial-gradient(1200px 480px at 50% -120px, #ffffffaa, transparent);}
     .hero h1{font-size:40px; margin:0 0 8px; color:var(--primary)}
     .hero p{margin:0; color:var(--muted); font-size:18px}
-    .countdown{
-      display:flex; gap:12px; justify-content:center; margin:24px 0 0; flex-wrap:wrap;
-    }
-    .cd-box{
-      background:var(--card); border:1px solid var(--border); border-radius:14px; padding:12px 16px; min-width:86px;
-      box-shadow:0 6px 18px rgba(0,0,0,.06);
-    }
+    .countdown{ display:flex; gap:12px; justify-content:center; margin:24px 0 0; flex-wrap:wrap; }
+    .cd-box{ background:var(--card); border:1px solid var(--border); border-radius:14px; padding:12px 16px; min-width:86px; box-shadow:0 6px 18px rgba(0,0,0,.06);}
     .cd-box .num{display:block; font-size:28px; font-weight:700; color:var(--primary)}
     .cd-box .lbl{font-size:12px; color:var(--muted)}
 
     /* Sections */
     section{padding:48px 16px}
     .container{max-width:1000px; margin:auto}
-    .card{
-      background:var(--card); border:1px solid var(--border); border-radius:20px; padding:24px;
-      box-shadow:0 8px 20px rgba(0,0,0,.08);
-    }
+    .card{ background:var(--card); border:1px solid var(--border); border-radius:20px; padding:24px; box-shadow:0 8px 20px rgba(0,0,0,.08);}
     h2{color:var(--primary); margin:0 0 16px; font-size:28px}
     .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
     @media (max-width:900px){ .grid-2{grid-template-columns:1fr} }
@@ -92,6 +77,7 @@
     .top{position:fixed; right:16px; bottom:16px; background:var(--primary); color:#fff; border:0; border-radius:999px; padding:10px 14px; box-shadow:0 8px 18px rgba(0,0,0,.18); cursor:pointer}
   </style>
 </head>
+
 <body>
 
   <!-- NAV -->
@@ -103,13 +89,14 @@
         <a href="#home">Início</a>
         <a href="#historia">Nossa História</a>
         <a href="#evento">Detalhes</a>
+        <a href="#galeria">Galeria</a>
         <a href="#presentes">Presentes</a>
         <a href="#rsvp">Confirmar Presença</a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO / COUNTDOWN -->
+  <!-- HERO -->
   <header id="home" class="hero">
     <div class="container">
       <h1>Isabella & Vinicius</h1>
@@ -136,55 +123,24 @@
       <div class="card">
         <h2>O Grande Dia</h2>
         <p>
-          Cerimônia e recepção no mesmo local. Sinta-se à vontade para vir de coração leve e
-          pronto para dançar!💙
+          Cerimônia e recepção no mesmo local. Sinta-se à vontade para vir de coração leve e pronto para dançar!💙
         </p>
       </div>
     </div>
   </section>
 
-<!-- GALERIA DE FOTOS -->
-<section id="galeria">
-  <div class="container">
-    <h2 style="text-align:center; margin-bottom:24px;">Nossa Galeria 📸</h2>
-    <div class="grid-galeria">
-      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.13.jpeg" alt="Foto 1"></div>
-      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.13 (1).jpeg" alt="Foto 2"></div>
-      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12.jpeg" alt="Foto 3"></div>
-      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (3).jpeg" alt="Foto 4"></div>
-      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (2).jpeg" alt="Foto 5"></div>
-      <div class="foto"><img src="WhatsApp Image 2025-08-20 at 22.46.12 (1).jpeg" alt="Foto 6"></div>
+  <!-- GALERIA -->
+  <section id="galeria">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom:24px;">Nossa Galeria 📸</h2>
+      <iframe 
+        src="https://drive.google.com/embeddedfolderview?id=1uUkmnDiLNQyoV40VwKG8Oicw12IkdI4W#grid" 
+        style="width:100%; height:600px; border:0; border-radius:14px;">
+      </iframe>
     </div>
-  </div>
-</section>
+  </section>
 
-<style>
-  .grid-galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-  }
-  .grid-galeria .foto {
-    overflow: hidden;
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    box-shadow: 0 6px 18px rgba(0,0,0,.06);
-    cursor: pointer;
-    transition: transform .3s, box-shadow .3s;
-  }
-  .grid-galeria .foto img {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    aspect-ratio: 4/3;
-  }
-  .grid-galeria .foto:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 24px rgba(0,0,0,.12);
-  }
-</style>
-
-  <!-- DETALHES DO EVENTO + MAPA -->
+  <!-- EVENTO -->
   <section id="evento">
     <div class="container grid-2">
       <div class="card">
@@ -208,34 +164,22 @@
     </div>
   </section>
 
-<!-- LISTA DE PRESENTES -->
-<section id="presentes">
-  <div class="container">
-    <div class="card" style="text-align:center;">
-      <h2>Lista de Presentes 🎁</h2>
-      <p>O melhor presente é a sua presença!  
-         Mas, se quiser nos presentear, você pode enviar via Pix:</p>
-
-      <p style="font-size:18px; font-weight:bold; color:#234064; margin:16px 0;">
-        Chave Pix: <br>
-        <span id="e7dc46ef-c5ca-478a-b896-73757c76adca"</span>
-      </p>
-
-      <button class="btn" onclick="copiarChave()">Copiar Chave Pix</button>
-
+  <!-- PRESENTES -->
+  <section id="presentes">
+    <div class="container">
+      <div class="card" style="text-align:center;">
+        <h2>Lista de Presentes 🎁</h2>
+        <p>O melhor presente é a sua presença!  
+           Mas, se quiser nos presentear, você pode enviar via Pix:</p>
+        <p style="font-size:18px; font-weight:bold; color:#234064; margin:16px 0;">
+          Chave Pix: <br>
+          <span id="chavepix">e7dc46ef-c5ca-478a-b896-73757c76adca</span>
+        </p>
+        <button class="btn" onclick="copiarChave()">Copiar Chave Pix</button>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<script>
-  function copiarChave(){
-    const chave = document.getElementById("chavepix").innerText;
-    navigator.clipboard.writeText(chave).then(() => {
-      alert("Chave Pix copiada!");
-    });
-  }
-</script>
   <!-- RSVP -->
   <section id="rsvp">
     <div class="container">
@@ -266,11 +210,8 @@
   <button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
 
   <script>
-    // ====== CONFIGURAÇÕES ======
+    // COUNTDOWN
     const TARGET_DATE = new Date("2029-10-27T12:00:00-03:00"); 
-    document.getElementById('data-evento').textContent = "27/10/2029";
-
-    // ====== COUNTDOWN ======
     const dd = document.getElementById('dd');
     const hh = document.getElementById('hh');
     const mm = document.getElementById('mm');
@@ -296,7 +237,15 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // ====== RSVP (Apps Script) ======
+    // PIX COPIAR
+    function copiarChave(){
+      const chave = document.getElementById("chavepix").innerText;
+      navigator.clipboard.writeText(chave).then(() => {
+        alert("Chave Pix copiada!");
+      });
+    }
+
+    // RSVP
     const form = document.getElementById('form-rsvp');
     const btn = document.getElementById('btn-enviar');
     const msgFinal = document.getElementById('mensagem-final');
@@ -326,7 +275,7 @@
       }
     });
 
-    // ====== FOOTER YEAR ======
+    // FOOTER YEAR
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
